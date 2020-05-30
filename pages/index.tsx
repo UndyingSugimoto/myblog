@@ -45,12 +45,12 @@ export default Index;
 
 export const getStaticProps = async () => {
   const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
+    `title`,
+    `date`,
+    `slug`,
+    `author`,
+    `coverImage`,
+    `excerpt`,
   ]);
 
   return {
