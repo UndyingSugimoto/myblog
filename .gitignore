@@ -1,5 +1,5 @@
 .env
 .now
 node_modules
-
 *.log
+.next
