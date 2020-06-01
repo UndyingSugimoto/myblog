@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from './container';
 import cn from 'classnames';
-import { EXAMPLE_PATH } from '../lib/constants';
+import { SOURCE_CODE_URL } from '../lib/constants';
 
 type Props = {
   preview?: boolean;
@@ -31,12 +31,11 @@ const Alert: React.FC<Props> = ({ preview }) => {
             </>
           ) : (
             <>
-              The source code for this blog is{` `}
               <a
-                href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
+                href={`${SOURCE_CODE_URL}`}
                 className="underline hover:text-success duration-200 transition-colors"
               >
-                available on GitHub
+                The source code on GitHub
               </a>
               .
             </>

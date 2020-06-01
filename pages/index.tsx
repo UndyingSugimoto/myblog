@@ -4,7 +4,8 @@ import HeroPost from '../components/hero-post';
 import Intro from '../components/intro';
 import Layout from '../components/layout';
 import Head from 'next/head';
-import { CMS_NAME } from '../lib/constants';
+import MoreStories from '../components/more-stories';
+import { CMS_NAME, AUTHOR_NAME } from '../lib/constants';
 import { getContents } from '../microCMS/axios/query/content';
 import { Content } from '../microCMS/types/content';
 
@@ -14,12 +15,12 @@ type Props = {
 
 const Index: React.FC<Props> = ({ allPosts }) => {
   const heroPost = allPosts[0];
-  // const morePosts = allPosts.slice(1);
+  const morePosts = allPosts.slice(1);
   return (
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>{`${AUTHOR_NAME}'s Blog`}</title>
         </Head>
         <Container>
           <Intro />
@@ -34,7 +35,7 @@ const Index: React.FC<Props> = ({ allPosts }) => {
               excerpt={heroPost.excerpt}
             />
           )}
-          {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
+          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </Layout>
     </>

@@ -8,7 +8,6 @@ import PostHeader from '../../components/post-header';
 import Layout from '../../components/layout';
 import PostTitle from '../../components/post-title';
 import Head from 'next/head';
-import { CMS_NAME } from '../../lib/constants';
 import markdownToHtml from '../../lib/markdownToHtml';
 import { getContents, getContent } from '../../microCMS/axios/query/content';
 import { Content } from '../../microCMS/types/content';
@@ -35,7 +34,8 @@ const Post: React.FC<Props> = ({ post, preview }) => {
             <article className="mb-32">
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {'Blog/'}
+                  {post.title}
                 </title>
                 {/* <meta property="og:image" content={post.ogImage.url} /> */}
               </Head>
