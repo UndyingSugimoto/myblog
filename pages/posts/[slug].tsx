@@ -6,22 +6,22 @@ import PostBody from '../../components/post-body';
 import Header from '../../components/header';
 import PostHeader from '../../components/post-header';
 import Layout from '../../components/layout';
-import { getPostBySlug, getAllPosts } from '../../lib/api';
 import PostTitle from '../../components/post-title';
 import Head from 'next/head';
 import { CMS_NAME } from '../../lib/constants';
 import markdownToHtml from '../../lib/markdownToHtml';
-import PostType from '../../types/post';
+import { getContents, getContent } from '../../microCMS/axios/query/content';
+import { Content } from '../../microCMS/types/content';
 
 type Props = {
-  post: PostType;
-  morePosts: PostType[];
+  post: Content;
+  morePosts: Content[];
   preview?: boolean;
 };
 
 const Post: React.FC<Props> = ({ post, preview }) => {
   const router = useRouter();
-  if (!router.isFallback && !post?.slug) {
+  if (!router.isFallback && !post?.id) {
     return <ErrorPage statusCode={404} />;
   }
   return (
@@ -37,13 +37,14 @@ const Post: React.FC<Props> = ({ post, preview }) => {
                 <title>
                   {post.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
-                <meta property="og:image" content={post.ogImage.url} />
+                {/* <meta property="og:image" content={post.ogImage.url} /> */}
               </Head>
               <PostHeader
                 title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
+                coverImage={post.coverImage.url}
+                date={post.updatedAt}
+                authorName={post.authorName}
+                authorImage={post.authorImage.url}
               />
               <PostBody content={post.content} />
             </article>
@@ -63,15 +64,7 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug, [
-    `title`,
-    `date`,
-    `slug`,
-    `author`,
-    `content`,
-    `ogImage`,
-    `coverImage`,
-  ]);
+  const post = await getContent(params.slug);
   const content = await markdownToHtml(post.content || ``);
 
   return {
@@ -85,13 +78,13 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts([`slug`]);
+  const posts = await getContents();
 
   return {
     paths: posts.map((posts) => {
       return {
         params: {
-          slug: posts.slug,
+          slug: posts.id,
         },
       };
     }),

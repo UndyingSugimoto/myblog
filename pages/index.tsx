@@ -1,21 +1,20 @@
 import React from 'react';
 import Container from '../components/container';
-import MoreStories from '../components/more-stories';
 import HeroPost from '../components/hero-post';
 import Intro from '../components/intro';
 import Layout from '../components/layout';
-import { getAllPosts } from '../lib/api';
 import Head from 'next/head';
 import { CMS_NAME } from '../lib/constants';
-import Post from '../types/post';
+import { getContents } from '../microCMS/axios/query/content';
+import { Content } from '../microCMS/types/content';
 
 type Props = {
-  allPosts: Post[];
+  allPosts: Content[];
 };
 
 const Index: React.FC<Props> = ({ allPosts }) => {
   const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
+  // const morePosts = allPosts.slice(1);
   return (
     <>
       <Layout>
@@ -27,14 +26,15 @@ const Index: React.FC<Props> = ({ allPosts }) => {
           {heroPost && (
             <HeroPost
               title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
+              coverImage={heroPost.coverImage.url}
+              date={heroPost.createdAt}
+              authorName={heroPost.authorName}
+              authorImage={heroPost.authorImage.url}
+              slug={heroPost.id}
               excerpt={heroPost.excerpt}
             />
           )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
         </Container>
       </Layout>
     </>
@@ -44,14 +44,7 @@ const Index: React.FC<Props> = ({ allPosts }) => {
 export default Index;
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
-    `title`,
-    `date`,
-    `slug`,
-    `author`,
-    `coverImage`,
-    `excerpt`,
-  ]);
+  const allPosts = await getContents();
 
   return {
     props: { allPosts },

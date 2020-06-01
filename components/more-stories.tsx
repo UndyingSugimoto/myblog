@@ -1,9 +1,9 @@
 import React from 'react';
 import PostPreview from './post-preview';
-import Post from '../types/post';
+import { Content } from '../microCMS/types/content';
 
 type Props = {
-  posts: Post[];
+  posts: Content[];
 };
 
 const MoreStories: React.FC<Props> = ({ posts }) => {
@@ -15,12 +15,13 @@ const MoreStories: React.FC<Props> = ({ posts }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32">
         {posts.map((post) => (
           <PostPreview
-            key={post.slug}
+            key={post.id}
             title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            author={post.author}
-            slug={post.slug}
+            coverImage={post.coverImage.url}
+            date={post.createdAt}
+            authorName={post.authorName}
+            authorImage={post.authorImage.url}
+            slug={post.id}
             excerpt={post.excerpt}
           />
         ))}
