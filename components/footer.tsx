@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from './container';
-import { EXAMPLE_PATH, SOURCE_CODE_URL, GITHUB_URL } from '../lib/constants';
+import { SOURCE_CODE_URL, GITHUB_URL } from '../lib/constants';
 
 const Footer: React.FC = () => {
   return (
