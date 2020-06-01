@@ -4,3 +4,4 @@ out
 node_modules
 *.log
 .next
+.vercel

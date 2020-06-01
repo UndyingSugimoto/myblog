@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
+    "deploy": "vercel --prod",
     "typecheck": "tsc",
     "lint": "npx eslint '**/*.{tsx,ts}'",
     "lint:fix": "npx eslint '**/*.{tsx,ts}' --fix",
