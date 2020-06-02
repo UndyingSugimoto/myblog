@@ -1,4 +1,6 @@
 {
     "editor.formatOnSave": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "css.validate": false,
+    "tailwindCSS.emmetCompletions": true
 }
