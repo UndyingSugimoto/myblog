@@ -5,7 +5,7 @@ import Intro from '../components/intro';
 import Layout from '../components/layout';
 import Head from 'next/head';
 import MoreStories from '../components/more-stories';
-import { CMS_NAME, AUTHOR_NAME } from '../lib/constants';
+import { AUTHOR_NAME } from '../lib/constants';
 import { getContents } from '../microCMS/axios/query/content';
 import { Content } from '../microCMS/types/content';
 
