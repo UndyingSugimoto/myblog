@@ -3,6 +3,8 @@ import Avatar from './avatar';
 import DateFormater from './date-formater';
 import CoverImage from './cover-image';
 import PostTitle from './post-title';
+import { Tag } from '../microCMS/types/tag';
+import TagTiles from './tag-tiles';
 
 type Props = {
   title: string;
@@ -10,6 +12,7 @@ type Props = {
   date: string;
   authorName: string;
   authorImage: string;
+  tags: Tag[];
 };
 
 const PostHeader: React.FC<Props> = ({
@@ -18,12 +21,16 @@ const PostHeader: React.FC<Props> = ({
   date,
   authorName,
   authorImage,
+  tags,
 }) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>
-      <div className="hidden md:block md:mb-12">
+      <div className="hidden md:block md:mb-10">
         <Avatar name={authorName} picture={authorImage} />
+      </div>
+      <div className="mb-4">
+        <TagTiles tags={tags}></TagTiles>
       </div>
       <div className="mb-8 md:mb-16 -mx-5 sm:mx-0">
         <CoverImage title={title} src={coverImage} />

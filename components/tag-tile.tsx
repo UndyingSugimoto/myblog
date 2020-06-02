@@ -7,7 +7,7 @@ type Props = {
 
 const TagTile: React.FC<Props> = ({ tag }) => {
   return (
-    <span className="text-gray-200 bg-blue-500 rounded-lg sm:text-center w-20 cursor-pointer p-2">
+    <span className="text-gray-200 bg-blue-500 rounded-lg text-center w-20 cursor-pointer p-2">
       {tag.tagName}
     </span>
   );

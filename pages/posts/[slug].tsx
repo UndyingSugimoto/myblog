@@ -8,9 +8,9 @@ import PostHeader from '../../components/post-header';
 import Layout from '../../components/layout';
 import PostTitle from '../../components/post-title';
 import Head from 'next/head';
-import markdownToHtml from '../../lib/markdownToHtml';
 import { getContents, getContent } from '../../microCMS/axios/query/content';
 import { Content } from '../../microCMS/types/content';
+import marked from '../../lib/marked';
 
 type Props = {
   post: Content;
@@ -45,6 +45,7 @@ const Post: React.FC<Props> = ({ post, preview }) => {
                 date={post.updatedAt}
                 authorName={post.authorName}
                 authorImage={post.authorImage.url}
+                tags={post.tags}
               />
               <PostBody content={post.content} />
             </article>
@@ -65,7 +66,7 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
   const post = await getContent(params.slug);
-  const content = await markdownToHtml(post.content || ``);
+  const content = marked(post.content);
 
   return {
     props: {
