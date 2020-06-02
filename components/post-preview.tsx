@@ -3,6 +3,8 @@ import Avatar from './avatar';
 import DateFormater from './date-formater';
 import CoverImage from './cover-image';
 import Link from 'next/link';
+import TagTiles from './tag-tiles';
+import { Tag } from '../microCMS/types/tag';
 
 type Props = {
   title: string;
@@ -12,6 +14,7 @@ type Props = {
   authorName: string;
   authorImage: string;
   slug: string;
+  tags: Tag[];
 };
 
 const PostPreview: React.FC<Props> = ({
@@ -22,6 +25,7 @@ const PostPreview: React.FC<Props> = ({
   authorName,
   authorImage,
   slug,
+  tags,
 }) => {
   return (
     <div>
@@ -33,10 +37,11 @@ const PostPreview: React.FC<Props> = ({
           <a className="hover:underline">{title}</a>
         </Link>
       </h3>
-      <div className="text-lg mb-4">
+      <TagTiles tags={tags} />
+      <div className="text-lg mb-4 mt-4 flex">
         <DateFormater dateString={date} />
+        <p className="text-lg leading-relaxed ml-3">{excerpt}</p>
       </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
       <Avatar name={authorName} picture={authorImage} />
     </div>
   );

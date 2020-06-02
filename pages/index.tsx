@@ -33,6 +33,7 @@ const Index: React.FC<Props> = ({ allPosts }) => {
               authorImage={heroPost.authorImage.url}
               slug={heroPost.id}
               excerpt={heroPost.excerpt}
+              tags={heroPost.tags}
             />
           )}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}

@@ -11,7 +11,7 @@
     "lint": "npx eslint '**/*.{tsx,ts}'",
     "lint:fix": "npx eslint '**/*.{tsx,ts}' --fix",
     "stylelint": "stylelint './**/*.tsx'",
-    "stylelint:fix:": "stylelint './**/*.tsx' --fix",
+    "stylelint:fix:": "stylelint './**/*.{tsx,css,scss}' --fix",
     "test": "jest --runInBand",
     "test:coverage": "jest --coverage"
   },

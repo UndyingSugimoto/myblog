@@ -3,6 +3,8 @@ import Avatar from './avatar';
 import DateFormater from './date-formater';
 import CoverImage from './cover-image';
 import Link from 'next/link';
+import TagTiles from './tag-tiles';
+import { Tag } from '../microCMS/types/tag';
 
 type Props = {
   title: string;
@@ -12,6 +14,7 @@ type Props = {
   authorName: string;
   authorImage: string;
   slug: string;
+  tags: Tag[];
 };
 
 const HeroPost: React.FC<Props> = ({
@@ -22,12 +25,14 @@ const HeroPost: React.FC<Props> = ({
   authorName,
   authorImage,
   slug,
+  tags,
 }) => {
   return (
     <section>
       <div className="mb-8 md:mb-16">
         <CoverImage title={title} src={coverImage} slug={slug} />
       </div>
+      <TagTiles tags={tags} />
       <div className="md:grid md:grid-cols-2 md:col-gap-16 lg:col-gap-8 mb-20 md:mb-28">
         <div>
           <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">

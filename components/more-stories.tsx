@@ -23,6 +23,7 @@ const MoreStories: React.FC<Props> = ({ posts }) => {
             authorImage={post.authorImage.url}
             slug={post.id}
             excerpt={post.excerpt}
+            tags={post.tags}
           />
         ))}
       </div>
