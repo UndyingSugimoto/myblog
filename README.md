@@ -7,3 +7,4 @@ This blog was created using *[starter-blog-typescript](https://github.com/vercel
 - Next.js
 - tailwind.css
 - styled components
+- CMS(MicroCMS)
