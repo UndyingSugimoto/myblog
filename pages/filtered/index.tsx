@@ -3,26 +3,26 @@ import { Content } from '../../microCMS/types/content';
 import { Tag } from '../../microCMS/types/tag';
 import MoreStories from '../../components/more-stories';
 import TagTiles from '../../components/tag-tiles';
-import { getContents } from '../../microCMS/axios/query/content';
+import { getContentsByTagsContentId } from '../../microCMS/axios/query/content';
 import { GetServerSideProps } from 'next';
 import Container from '../../components/container';
+import { getTag } from '../../microCMS/axios/query/tag';
+import Header from '../../components/header';
 
 type Props = {
   posts: Content[];
-  tags: Tag[];
+  tag: Tag;
 };
 
-const Filtered: React.FC<Props> = ({ posts, tags }) => {
+const Filtered: React.FC<Props> = ({ posts, tag }) => {
   return (
     <>
       <Container>
+        <Header />
         <div className="flex flex-wrap rounded-lg bg-gray-400 h-20 w-auto p-5 mt-3 ">
-          <TagTiles tags={tags}></TagTiles>
+          <TagTiles tags={[tag]}></TagTiles>
         </div>
-        <MoreStories
-          posts={posts}
-          title={`Filtered by ${tags.map((tag) => tag.tagName).join(',')} `}
-        ></MoreStories>
+        <MoreStories posts={posts} title={''}></MoreStories>
       </Container>
     </>
   );
@@ -31,17 +31,13 @@ const Filtered: React.FC<Props> = ({ posts, tags }) => {
 export const getServerSideProps: GetServerSideProps<Props> = async (
   context
 ) => {
-  // const name = context.params?.tagIds;
-  console.log('name :');
-  console.log(context.query);
+  const id: string = context.query['tagsContentId'] as string;
 
-  // TODO ここでタグでフィルタリングされたコンテンツを取得する
-  const posts = await getContents();
-  // TODO not impl yet
-  // const tags = await getTags();
+  const contents = await getContentsByTagsContentId(id);
+  const tag = await getTag(id);
 
   return {
-    props: { posts: posts, tags: [{ tagId: 'id', tagName: 'name' }] },
+    props: { posts: contents, tag },
   };
 };
 

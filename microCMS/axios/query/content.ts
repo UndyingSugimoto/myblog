@@ -13,6 +13,19 @@ export const getContents = () =>
       return [] as Content[];
     });
 
+export const getContentsByTagsContentId = (contentId: string) =>
+  axios
+    .get<CMSResponse<Array<Content>>>(
+      `/contents?filters=tags[contains]${contentId}`
+    )
+    .then(function (response) {
+      return response.data.contents;
+    })
+    .catch(function (error) {
+      console.log(error);
+      return [] as Content[];
+    });
+
 export const getContent = (contentId: string) =>
   axios
     .get<Content>(`/contents/${contentId}`)

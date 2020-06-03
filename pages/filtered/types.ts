@@ -1,5 +1,5 @@
 export type Query = {
-  tagIds: string[];
+  tagsContentId: string;
 };
 
 export const Path = '/filtered';

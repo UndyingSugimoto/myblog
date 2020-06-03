@@ -8,7 +8,7 @@ type Props = {
 };
 
 const TagTile: React.FC<Props> = ({ tag }) => {
-  const query: Query = { tagIds: [tag.tagId] };
+  const query: Query = { tagsContentId: tag.id };
   return (
     <Link href={{ pathname: Path, query }}>
       <span className="text-gray-200 bg-blue-500 rounded-lg text-center w-20 cursor-pointer p-2">
