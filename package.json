@@ -67,12 +67,10 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "prettier --write",
-      "yarn lint:fix",
-      "git add"
+      "yarn lint:fix"
     ],
     "*.{tsx}": [
-      "yarn stylelint:fix",
-      "git add"
+      "yarn stylelint:fix"
     ]
   }
 }
