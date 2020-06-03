@@ -1,4 +1,4 @@
-# This is UndyingSugimoto's blog
+# [This is UndyingSugimoto's blog](https://undyingsugimoto.com/)
 
 ## Powerd by Next.js *starter-blog-typescript*
 This blog was created using *starter-blog-typescript*.
