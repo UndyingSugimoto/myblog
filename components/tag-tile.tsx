@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tag } from '../microCMS/types/tag';
 import Link from 'next/link';
-import { Path, Query } from '../pages/filtered/types';
+import { Path, Query } from '../types/pages/filtered/types';
 
 type Props = {
   tag: Tag;
