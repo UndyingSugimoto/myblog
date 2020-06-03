@@ -8,6 +8,7 @@ import { GetServerSideProps } from 'next';
 import Container from '../../components/container';
 import { getTag } from '../../microCMS/axios/query/tag';
 import Header from '../../components/header';
+import Layout from '../../components/layout';
 
 type Props = {
   posts: Content[];
@@ -16,7 +17,7 @@ type Props = {
 
 const Filtered: React.FC<Props> = ({ posts, tag }) => {
   return (
-    <>
+    <Layout>
       <Container>
         <Header />
         <div className="flex flex-wrap rounded-lg bg-gray-400 h-20 w-auto p-5 mt-3 ">
@@ -24,7 +25,7 @@ const Filtered: React.FC<Props> = ({ posts, tag }) => {
         </div>
         <MoreStories posts={posts} title={''}></MoreStories>
       </Container>
-    </>
+    </Layout>
   );
 };
 
