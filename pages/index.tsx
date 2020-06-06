@@ -6,8 +6,8 @@ import Layout from '../components/layout';
 import Head from 'next/head';
 import MoreStories from '../components/more-stories';
 import { AUTHOR_NAME } from '../lib/constants';
-import { getContents } from '../microCMS/axios/query/content';
 import { Content } from '../microCMS/types/content';
+import { getContents } from '../microCMS/myclient/query/content';
 
 type Props = {
   allPosts: Content[];

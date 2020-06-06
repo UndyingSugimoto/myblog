@@ -3,12 +3,12 @@ import { Content } from '../../microCMS/types/content';
 import { Tag } from '../../microCMS/types/tag';
 import MoreStories from '../../components/more-stories';
 import TagTiles from '../../components/tag-tiles';
-import { getContentsByTagsContentId } from '../../microCMS/axios/query/content';
 import { GetServerSideProps } from 'next';
 import Container from '../../components/container';
 import { getTag } from '../../microCMS/axios/query/tag';
 import Header from '../../components/header';
 import Layout from '../../components/layout';
+import { getContentsByTagsContentId } from '../../microCMS/myclient/query/content';
 
 type Props = {
   posts: Content[];

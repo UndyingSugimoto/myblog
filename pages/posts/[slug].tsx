@@ -8,9 +8,9 @@ import PostHeader from '../../components/post-header';
 import Layout from '../../components/layout';
 import PostTitle from '../../components/post-title';
 import Head from 'next/head';
-import { getContents, getContent } from '../../microCMS/axios/query/content';
 import { Content } from '../../microCMS/types/content';
 import marked from '../../lib/marked';
+import { getContent, getContents } from '../../microCMS/myclient/query/content';
 
 type Props = {
   post: Content;
