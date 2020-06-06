@@ -29,3 +29,7 @@ export const getContentsByTagsContentId = (tagContentId: string) => {
 
   return client.getContents<Content>(param);
 };
+
+export const postContent = (content: Content) => {
+  client.postContent(path, content);
+};

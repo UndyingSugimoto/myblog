@@ -11,9 +11,10 @@ import Head from 'next/head';
 import { Content } from '../../microCMS/types/content';
 import marked from '../../lib/marked';
 import { getContent, getContents } from '../../microCMS/myclient/query/content';
+import { Data } from 'microcms-client/lib/types/data';
 
 type Props = {
-  post: Content;
+  post: Content & Data;
   morePosts: Content[];
   preview?: boolean;
 };

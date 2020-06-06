@@ -6220,10 +6220,10 @@ merge2@^1.3.0:
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.3.0.tgz#5b366ee83b2f1582c48f87e47cf1a9352103ca81"
   integrity sha512-2j4DAdlBOkiSZIsaXk4mTE3sRS02yBHAtfy127xRV3bQUFqXkjHCHLW6Scv7DwNRbIWNHH8zpnz9zMaKXIdvYw==
 
-microcms-client@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/microcms-client/-/microcms-client-0.0.6.tgz#d18d8e857995ea27aefff59e2c8207e0a3f88b7a"
-  integrity sha512-X8HiHT9FL9h3wf23yjFcYWHwp6mARfH8e3QVeiFoLvRVgikZ5iGYm4fFW3xNOlu/4KVV6D0s3Eq+n1mJf8zbOQ==
+microcms-client@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/microcms-client/-/microcms-client-0.0.8.tgz#151cf7293bf6aae28e5b1d9dbe9395ef46bc7660"
+  integrity sha512-Gjk7vd3tWaV/RdHr8/IpubbSNJjJTnjZaeXXONRKeCcN8AtH+jUf5/rQM/2zGkootbuQBMFkEsRuLVMRxV+Tpw==
   dependencies:
     axios "^0.19.2"
     typescript "^3.9.5"

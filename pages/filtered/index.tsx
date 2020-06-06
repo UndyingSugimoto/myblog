@@ -9,9 +9,10 @@ import { getTag } from '../../microCMS/axios/query/tag';
 import Header from '../../components/header';
 import Layout from '../../components/layout';
 import { getContentsByTagsContentId } from '../../microCMS/myclient/query/content';
+import { Data } from 'microcms-client/lib/types/data';
 
 type Props = {
-  posts: Content[];
+  posts: (Content & Data)[];
   tag: Tag;
 };
 

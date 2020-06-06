@@ -8,9 +8,10 @@ import MoreStories from '../components/more-stories';
 import { AUTHOR_NAME } from '../lib/constants';
 import { Content } from '../microCMS/types/content';
 import { getContents } from '../microCMS/myclient/query/content';
+import { Data } from 'microcms-client/lib/types/data';
 
 type Props = {
-  allPosts: Content[];
+  allPosts: (Content & Data)[];
 };
 
 const Index: React.FC<Props> = ({ allPosts }) => {

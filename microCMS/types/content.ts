@@ -1,5 +1,4 @@
 import { Tag } from './tag';
-import { Data } from './common/data';
 
 export type Content = {
   title: string;
@@ -9,4 +8,4 @@ export type Content = {
   authorName: string;
   authorImage: { url: string };
   coverImage: { url: string };
-} & Data;
+};
