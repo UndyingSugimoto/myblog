@@ -1,9 +1,10 @@
 import React from 'react';
 import PostPreview from './post-preview';
 import { Content } from '../microCMS/types/content';
+import { Data } from 'microcms-client/lib/types/data';
 
 type Props = {
-  posts: Content[];
+  posts: (Content & Data)[];
   title?: string;
 };
 
