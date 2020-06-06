@@ -11,7 +11,7 @@ const TagTile: React.FC<Props> = ({ tag }) => {
   const query: Query = { tagsContentId: tag.id };
   return (
     <Link href={{ pathname: Path, query }}>
-      <span className="text-gray-200 bg-blue-500 rounded-lg text-center w-20 cursor-pointer p-2">
+      <span className="text-gray-200 bg-blue-500 rounded-lg text-center w-auto cursor-pointer p-2 pr-4 pl-4">
         {tag.tagName}
       </span>
     </Link>
