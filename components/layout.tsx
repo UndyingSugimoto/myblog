@@ -5,7 +5,7 @@ import Meta from './meta';
 
 type Props = {
   preview?: boolean;
-  meta?: Meta;
+  meta?: React.ReactNode;
   children: React.ReactNode;
 };
 
