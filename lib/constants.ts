@@ -4,3 +4,5 @@ export const HOME_OG_IMAGE_URL = `https://images.microcms-assets.io/protected/ap
 export const AUTHOR_NAME = `UndyingSugimoto`;
 export const SOURCE_CODE_URL = `https://github.com/UndyingSugimoto/myblog`;
 export const GITHUB_URL = `https://github.com/UndyingSugimoto`;
+export const TWITTER_URL = `https://twitter.com/kouji360`;
+export const LINKEDIN_URL = `https://www.linkedin.com/in/undyingsugimoto/`;

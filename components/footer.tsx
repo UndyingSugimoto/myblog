@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from './container';
-import { SOURCE_CODE_URL, GITHUB_URL } from '../lib/constants';
+import SnsIcons from './sns-icons';
 
 const Footer: React.FC = () => {
   return (
@@ -11,19 +11,19 @@ const Footer: React.FC = () => {
             Tech , Ton-Katsu and Poems
           </h3>
           <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a
-              href={`${GITHUB_URL}`}
-              className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
-            >
-              My GitHub
-            </a>
-            <a
-              href={`${SOURCE_CODE_URL}`}
-              className="mx-3 font-bold hover:underline"
-            >
-              View on GitHub
-            </a>
+            <SnsIcons />
           </div>
+        </div>
+        {/* Borrow the favicon. */}
+        <div className="hidden">
+          Icons made by{' '}
+          <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+            Freepik
+          </a>{' '}
+          from{' '}
+          <a href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+          </a>
         </div>
       </Container>
     </footer>
