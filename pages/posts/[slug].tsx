@@ -7,11 +7,11 @@ import Header from '../../components/header';
 import PostHeader from '../../components/post-header';
 import Layout from '../../components/layout';
 import PostTitle from '../../components/post-title';
-import Head from 'next/head';
 import { Content } from '../../microCMS/types/content';
 import marked from '../../lib/marked';
 import { getContent, getContents } from '../../microCMS/myclient/query/content';
 import { Data } from 'microcms-client/lib/types/data';
+import Meta from '../../components/meta';
 
 type Props = {
   post: Content & Data;
@@ -24,8 +24,21 @@ const Post: React.FC<Props> = ({ post, preview }) => {
   if (!router.isFallback && !post?.id) {
     return <ErrorPage statusCode={404} />;
   }
+
+  const meta = (
+    <Meta
+      title={post.title}
+      ogImageUrl={post.coverImage.url}
+      description={post.tags
+        .map((tag) => {
+          return tag.tagName;
+        })
+        .join(' | ')}
+    ></Meta>
+  );
+
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} meta={meta}>
       <Container>
         <Header />
         {router.isFallback ? (
@@ -33,21 +46,6 @@ const Post: React.FC<Props> = ({ post, preview }) => {
         ) : (
           <>
             <article className="mb-32">
-              <Head>
-                <title>
-                  {'Blog/'}
-                  {post.title}
-                </title>
-                <meta property="og:image" content={post.coverImage.url} />
-                <meta
-                  name="descrpition"
-                  content={post.tags
-                    .map((tag) => {
-                      return tag.tagName;
-                    })
-                    .join(' | ')}
-                ></meta>
-              </Head>
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage.url}

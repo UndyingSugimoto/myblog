@@ -3,9 +3,7 @@ import Container from '../components/container';
 import HeroPost from '../components/hero-post';
 import Intro from '../components/intro';
 import Layout from '../components/layout';
-import Head from 'next/head';
 import MoreStories from '../components/more-stories';
-import { AUTHOR_NAME } from '../lib/constants';
 import { Content } from '../microCMS/types/content';
 import { getContents } from '../microCMS/myclient/query/content';
 import { Data } from 'microcms-client/lib/types/data';
@@ -20,9 +18,6 @@ const Index: React.FC<Props> = ({ allPosts }) => {
   return (
     <>
       <Layout>
-        <Head>
-          <title>{`${AUTHOR_NAME}`}</title>
-        </Head>
         <Container>
           <Intro />
           {heroPost && (

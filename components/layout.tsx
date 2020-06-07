@@ -5,13 +5,14 @@ import Meta from './meta';
 
 type Props = {
   preview?: boolean;
+  meta?: Meta;
   children: React.ReactNode;
 };
 
-const Layout: React.FC<Props> = ({ preview, children }) => {
+const Layout: React.FC<Props> = ({ preview, meta, children }) => {
   return (
     <>
-      <Meta />
+      {meta ? meta : <Meta />}
       <div className="min-h-screen">
         <Alert preview={preview} />
         <main>{children}</main>
