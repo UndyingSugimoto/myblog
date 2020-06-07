@@ -2,7 +2,6 @@ import React from 'react';
 import { Content } from '../../microCMS/types/content';
 import { Tag } from '../../microCMS/types/tag';
 import MoreStories from '../../components/more-stories';
-import TagTiles from '../../components/tag-tiles';
 import { GetServerSideProps } from 'next';
 import Container from '../../components/container';
 import { getTag } from '../../microCMS/axios/query/tag';
