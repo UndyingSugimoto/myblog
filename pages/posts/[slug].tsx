@@ -24,6 +24,11 @@ const Post: React.FC<Props> = ({ post, preview }) => {
   if (!router.isFallback && !post?.id) {
     return <ErrorPage statusCode={404} />;
   }
+  const descrption = post.tags
+    .map((tag) => {
+      return tag.tagName;
+    })
+    .join(' | ');
 
   return (
     <Layout preview={preview}>
@@ -40,14 +45,11 @@ const Post: React.FC<Props> = ({ post, preview }) => {
                   {post.title}
                 </title>
                 <meta property="og:image" content={post.coverImage.url} />
-                <meta
-                  name="descrpition"
-                  content={post.tags
-                    .map((tag) => {
-                      return tag.tagName;
-                    })
-                    .join(' | ')}
-                ></meta>
+                <meta name="descrpition" content={descrption}></meta>
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={post.title} />
+                <meta name="twitter:description" content={descrption} />
+                <meta name="twitter:image" content={post.coverImage.url}></meta>
               </Head>
               <PostHeader
                 title={post.title}
