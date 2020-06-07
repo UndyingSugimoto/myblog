@@ -43,6 +43,19 @@ const Meta: React.FC<Props> = ({ description, ogImageUrl, title }) => {
         property="og:image"
         content={ogImageUrl ? ogImageUrl : HOME_OG_IMAGE_URL}
       />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="twitter:title"
+        content={title ? title : `UndyingSugimoto's Blog`}
+      />
+      <meta
+        name="twitter:description"
+        content={description ? description : `UndyingSugimoto's Blog`}
+      />
+      <meta
+        name="twitter:image"
+        content={ogImageUrl ? ogImageUrl : HOME_OG_IMAGE_URL}
+      ></meta>
     </Head>
   );
 };
