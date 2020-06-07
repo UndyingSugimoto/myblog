@@ -3,8 +3,8 @@ import Avatar from './avatar';
 import DateFormater from './date-formater';
 import CoverImage from './cover-image';
 import Link from 'next/link';
-import TagTiles from './tag-tiles';
 import { Tag } from '../microCMS/types/tag';
+import TagTiles from './tag-tiles';
 
 type Props = {
   title: string;

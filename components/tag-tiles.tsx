@@ -8,7 +8,7 @@ type Props = {
 
 const TagTiles: React.FC<Props> = ({ tags }) => {
   return (
-    <div className="flex flex-wrap justify-between max-w-md content-around h-28">
+    <div className="flex flex-wrap max-w-md content-around h-28">
       {tags.map((tag) => {
         return <TagTile tag={tag} key={tag.tagId} />;
       })}
