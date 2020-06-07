@@ -2,7 +2,12 @@ import React from 'react';
 import Head from 'next/head';
 import { HOME_OG_IMAGE_URL } from '../lib/constants';
 
-const Meta: React.FC = () => {
+type Props = {
+  description?: string;
+  ogImageUrl?: string;
+};
+
+const Meta: React.FC<Props> = ({ description, ogImageUrl }) => {
   return (
     <Head>
       <link
@@ -28,8 +33,14 @@ const Meta: React.FC = () => {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta name="description" content={`UndyingSugimoto's Blog`} />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta
+        name="description"
+        content={description ? description : `UndyingSugimoto's Blog`}
+      />
+      <meta
+        property="og:image"
+        content={ogImageUrl ? ogImageUrl : HOME_OG_IMAGE_URL}
+      />
     </Head>
   );
 };
