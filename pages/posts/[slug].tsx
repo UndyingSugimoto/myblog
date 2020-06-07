@@ -38,7 +38,15 @@ const Post: React.FC<Props> = ({ post, preview }) => {
                   {'Blog/'}
                   {post.title}
                 </title>
-                {/* <meta property="og:image" content={post.ogImage.url} /> */}
+                <meta property="og:image" content={post.coverImage.url} />
+                <meta
+                  name="descrpition"
+                  content={post.tags
+                    .map((tag) => {
+                      return tag.tagName;
+                    })
+                    .join(' | ')}
+                ></meta>
               </Head>
               <PostHeader
                 title={post.title}
