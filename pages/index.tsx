@@ -7,6 +7,8 @@ import MoreStories from '../components/more-stories';
 import { Content } from '../microCMS/types/content';
 import { getContents } from '../microCMS/myclient/query/content';
 import { Data } from 'microcms-client/lib/types/data';
+import Head from 'next/head';
+import { AUTHOR_NAME } from '../lib/constants';
 
 type Props = {
   allPosts: (Content & Data)[];
@@ -18,6 +20,9 @@ const Index: React.FC<Props> = ({ allPosts }) => {
   return (
     <>
       <Layout>
+        <Head>
+          <title>{`${AUTHOR_NAME}`}</title>
+        </Head>
         <Container>
           <Intro />
           {heroPost && (
