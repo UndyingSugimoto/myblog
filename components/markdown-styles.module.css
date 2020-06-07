@@ -1,8 +1,11 @@
 .markdown {
-  @apply text-lg leading-relaxed;
+  @apply text-lg leading-loose;
 }
 
-.markdown p,
+.markdown p {
+  @apply my-10;
+}
+
 .markdown ul,
 .markdown ol,
 .markdown blockquote {
